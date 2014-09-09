@@ -21,14 +21,14 @@ def print_desc(page):
 
   print "%s - %s..." % (page.title, summary[start_index : start_index + DESC_LEN])
 
-def seems_list_anime(page):
+def seems_like_anime(page):
   return 'anime' in page.summary and 'list' not in page.title and 'List' not in page.title
 
 def process_list_page(page):
   print "~ %s ~" % page.title
   for title in page.links: 
     page = get_page_safe(title)
-    if page and seems_list_anime(page):
+    if page and seems_like_anime(page):
       print_desc(page)
 
 if __name__ == '__main__':
