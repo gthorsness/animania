@@ -1,7 +1,9 @@
 """
     Proof of concept, kinda shitty
 """
-
+"""
+	Froze up on me when it got to animated feature films -Greg
+"""
 import wikipedia as wiki
 
 def get_page_safe(title):
@@ -20,6 +22,15 @@ def print_desc(page):
     start_index = 0
 
   print "%s - %s..." % (page.title, summary[start_index : start_index + DESC_LEN])
+  for image in page.images:
+	if 'http://upload.wikimedia.org/wikipedia/en/' in image and '.jpg' in image: 
+		print image
+"""
+	We need to work on search parameters its picking up people and animation studios
+ 	Not picking up some of the anime series because the summary only references the manga
+	Though I never even heard of most of those so we could just ignore that
+	Keeps picking up defintion of Anime - Greg
+"""
 
 def seems_like_anime(page):
   return 'anime' in page.summary and 'list' not in page.title and 'List' not in page.title
@@ -33,7 +44,20 @@ def process_list_page(page):
 
 if __name__ == '__main__':
   list_page =  wiki.page('Lists_of_anime')
-  for category_link in list_page.links[4:]:
+
+  for category_link in list_page.links[4:7]:
+    page = get_page_safe(category_link)
+    if page:
+      process_list_page(page)    
+  for category_link in list_page.links[21:24]:
     page = get_page_safe(category_link)
     if page:
       process_list_page(page)
+  for category_link in list_page.links[25:30]:
+    page = get_page_safe(category_link)
+    if page:
+      process_list_page(page)
+
+   
+
+

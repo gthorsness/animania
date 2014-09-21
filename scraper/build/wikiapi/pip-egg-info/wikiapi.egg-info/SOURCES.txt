@@ -1,0 +1,7 @@
+pip-egg-info/wikiapi.egg-info/PKG-INFO
+pip-egg-info/wikiapi.egg-info/SOURCES.txt
+pip-egg-info/wikiapi.egg-info/dependency_links.txt
+pip-egg-info/wikiapi.egg-info/requires.txt
+pip-egg-info/wikiapi.egg-info/top_level.txt
+wikiapi/__init__.py
+wikiapi/wikiapi.py
